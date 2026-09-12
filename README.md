@@ -1,75 +1,50 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+# 🧱 Dev Stack Builder
+ 
+ 
+**Dev Stack Builder** is a React + TypeScript web app that lets developers browse a curated catalog of frontend, backend, database, styling, and DevOps technologies, then assemble their own personalized tech stack with a single click. Pick your tools, see them live in a side panel, and remove or reset your stack whenever you want — no sign-up required to explore.
+ 
+---
+ 
+## ✨ Features
+ 
+### 🃏 Curated Technology Catalog
+Browse 10–15 hand-picked technologies across categories like Frontend, Backend, Database, Language, Styling, and DevOps — each card shows an icon, badge, difficulty level, and community rating so you know exactly what you're picking.
+ 
+### 🧰 Live "Your Stack" Builder
+Add technologies to your personal stack with one click and watch them appear instantly in the sidebar, complete with a running count. Duplicate additions are blocked with a friendly warning, and added cards flip to a disabled **"✓ Added to Stack"** state.
+ 
+### ❌ Full Control Over Your Selections
+Remove any single technology from your stack with its ✕ button, or wipe the slate clean with **Remove All** — your stack updates instantly, no page reloads.
+ 
+---
+ 
+## 🛠️ Built With
+ 
+- **React** — component-driven UI
+- **TypeScript** — type-safe props, state, and data models
+- **Tailwind CSS** — utility-first styling and responsive layout
+- **React Hooks** — `useState` for stack state
+- **JSON** — technology data loaded from a static JSON file, not hardcoded
+---
+ 
+## 📱 Responsive Design
+ 
+Fully responsive layout — 3-column grid on desktop and a single column with a collapsible hamburger navbar on mobile.
+ 
+---
+ 
+## 🚀 Getting Started
+ 
+```bash
+# Clone the repository
+git clone https://github.com/Md-Radwan/PH-Assignment-5.git
+ 
+# Install dependencies
+cd PH-Assignment-5
+npm install
+ 
+# Run the dev server
+npm run dev
 ```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+ 
+---
