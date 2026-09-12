@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { useState, type Dispatch, type SetStateAction } from 'react'
 import type { Itechnologie } from '../types/technologieType';
+import { toast } from 'react-toastify';
 
-const TechnologieCard = ({eachTechnologie}: { eachTechnologie: Itechnologie }) => {
+interface ITechnologieCardProps{
+  eachTechnologie: Itechnologie;
+  selectedTechnologies: Itechnologie[];
+  setSelectedTechnologies: Dispatch<SetStateAction<Itechnologie[]>>
+}
+
+const TechnologieCard = ({ 
+  eachTechnologie, 
+  selectedTechnologies, 
+  setSelectedTechnologies 
+}: ITechnologieCardProps) => {
+
+
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleAddToStack = (eachTechnologie: Itechnologie) => {
+    setIsSelected(true);
+    toast.success(`${eachTechnologie.name} added to stack`);
+    const newTechnologie = eachTechnologie
+    setSelectedTechnologies([...selectedTechnologies, newTechnologie])
+  };
+
   return (
     <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-[0_8px_25px_rgba(0,0,0,0.08)]">
       {/* Top section */}
@@ -22,7 +44,7 @@ const TechnologieCard = ({eachTechnologie}: { eachTechnologie: Itechnologie }) =
       </h2>
 
       {/* Description */}
-      <p className="mt-2 min-h-[72px] text-sm leading-5 text-slate-500">
+      <p className="mt-2 min-h-18 text-sm leading-5 text-slate-500">
         {eachTechnologie.description}
       </p>
 
@@ -46,8 +68,12 @@ const TechnologieCard = ({eachTechnologie}: { eachTechnologie: Itechnologie }) =
       </div>
 
       {/* Button */}
-      <button className="mt-4 w-full rounded-lg bg-slate-950 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800">
-        Add to Stack
+      <button
+        onClick={()=> handleAddToStack(eachTechnologie)}
+        className={`mt-4 w-full rounded-lg bg-slate-950 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800 ${isSelected ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+        disabled={isSelected}
+      >
+        {isSelected ? '✓ Added to Stack' : 'Add to Stack'}
       </button>
     </div>
   );

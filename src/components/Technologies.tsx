@@ -1,7 +1,7 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import type { Itechnologie } from "../types/technologieType";
 import TechnologieList from "./TechnologieList";
-import YourStack from "./YourStack";
+import SelectedTechnologiesCard from "./SelectedTechnologiesCard";
 
 interface TechnologiesProps {
   technologiePromise: Promise<Itechnologie[]>;
@@ -10,14 +10,22 @@ interface TechnologiesProps {
 const Technologies = ({ technologiePromise }: TechnologiesProps) => {
   const technologies = use(technologiePromise);
 
-  console.log(technologies);
+  const [selectedTechnologies, setSelectedTechnologies] = useState<Itechnologie[]>([]);
+
   return (
-    <div className="flex justify-between gap-8 container">
+    <div className="flex justify-between gap-8 container pt-10 pb-20">
       <div className="w-[75%]">
-        <TechnologieList technologies={technologies} />
+        <TechnologieList 
+        technologies={technologies} 
+        selectedTechnologies={selectedTechnologies} 
+        setSelectedTechnologies={setSelectedTechnologies}
+        />
       </div>
       <div className="w-[25%]">
-        <YourStack/>
+        <SelectedTechnologiesCard
+        selectedTechnologies={selectedTechnologies} 
+        setSelectedTechnologies={setSelectedTechnologies}
+        />
       </div>
     </div>
   );
