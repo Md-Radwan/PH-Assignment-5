@@ -75,6 +75,7 @@ const TechnologieCard = ({
       >
         {selectedTechnologies.some(item => item.id === eachTechnologie.id) ? '✓ Added to Stack' : 'Add to Stack'}
       </button>
+      <button className='hidded' disabled={isSelected}></button>
     </div>
   );
 }
