@@ -1,4 +1,4 @@
-import React, { type Dispatch, type SetStateAction } from "react";
+import  { type Dispatch, type SetStateAction } from "react";
 import type { Itechnologie } from "../types/technologieType";
 
 // import { SiSvelte, SiRedis } from "react-icons/si";
@@ -21,17 +21,17 @@ const SelectedTechnologiesCard = ({
         const restTechnologie = selectedTechnologies.filter(selectedTechnologie=> selectedTechnologie.name != item.name)
 
         setSelectedTechnologies(restTechnologie)
-        toast.success('Remove this stack');
+        toast.error('Remove this stack');
     }
 
     const handleRemoveTechnologieAll = () => {
         setSelectedTechnologies([])
-        toast.success('Successfully Remove all stack');
+        toast.error('Successfully Remove all stack');
     }
 
     
   return (
-       <div className="w-[280px] min-h-[298px] rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+       <div className="w-full lg:w-70 min-h-74.5 rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
       {/* Header */}
       <div className="mb-4">
         <h2 className="text-[16px] font-semibold text-[#111827]">
@@ -48,7 +48,7 @@ const SelectedTechnologiesCard = ({
         {selectedTechnologies.map((item) => (
           <div
             key={item.id}
-            className="flex h-[51px] items-center rounded-lg border border-[#dbe3ef] px-3"
+            className="flex h-12.75 items-center rounded-lg border border-[#dbe3ef] px-3"
           >
             {/* Icon */}
             <div className="flex w-8 items-center justify-center">
@@ -80,7 +80,7 @@ const SelectedTechnologiesCard = ({
       {/* Remove All */}
       <button
         type="button"
-        className="mt-[47px] h-[31px] w-full rounded-lg border border-[#ff8d8d] text-[13px] font-medium text-[#ff3b30] transition hover:bg-red-50"
+        className="mt-11.75 h-7.75 w-full rounded-lg border border-[#ff8d8d] text-[13px] font-medium text-[#ff3b30] transition hover:bg-red-50"
         onClick={handleRemoveTechnologieAll}
       >
         Remove All

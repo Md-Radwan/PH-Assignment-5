@@ -1,4 +1,4 @@
-import React, { type Dispatch, type SetStateAction } from "react";
+import { type Dispatch, type SetStateAction } from "react";
 import type { Itechnologie } from "../types/technologieType";
 import TechnologieCard from "./TechnologieCard";
 
@@ -10,7 +10,7 @@ interface ITechnologieProps{
 
 const TechnologieList = ({ technologies, selectedTechnologies, setSelectedTechnologies }: ITechnologieProps) => {
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {technologies.map((eachTechnologie: Itechnologie, ind: number) => {
         return <TechnologieCard
         key={ind} 

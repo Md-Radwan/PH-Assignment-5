@@ -1,4 +1,4 @@
-import React, { useState, type Dispatch, type SetStateAction } from 'react'
+import { useState, type Dispatch, type SetStateAction } from 'react'
 import type { Itechnologie } from '../types/technologieType';
 import { toast } from 'react-toastify';
 
@@ -70,10 +70,10 @@ const TechnologieCard = ({
       {/* Button */}
       <button
         onClick={()=> handleAddToStack(eachTechnologie)}
-        className={`mt-4 w-full rounded-lg bg-slate-950 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800 ${isSelected ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-        disabled={isSelected}
+        className={`mt-4 w-full rounded-lg bg-slate-950 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800 ${selectedTechnologies.some(item => item.id === eachTechnologie.id) ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+        disabled={selectedTechnologies.some(item => item.id === eachTechnologie.id)}
       >
-        {isSelected ? '✓ Added to Stack' : 'Add to Stack'}
+        {selectedTechnologies.some(item => item.id === eachTechnologie.id) ? '✓ Added to Stack' : 'Add to Stack'}
       </button>
     </div>
   );

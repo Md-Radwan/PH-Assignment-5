@@ -1,11 +1,13 @@
 import logo from "../assets/logo-text.png";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Nav = () => {
   return (
     <div className="relative">
-      <div className="container py-6 flex justify-between items-center fixed right-0 left-0 bg-white">
+      <div className="container px-4 py-6 flex justify-between items-center fixed right-0 left-0 bg-white">
+        <RxHamburgerMenu className="text-4xl md:hidden"/>
         <img src={logo} alt="logo picture" />
-        <ul className="flex gap-7.5 text-[#475569] text-sm font-medium leading-5 items-center">
+        <ul className="hidden md:flex gap-7.5 text-[#475569] text-sm font-medium leading-5 items-center">
           <li className="text-[#DB2777]">
             <a href="#">Home</a>
           </li>
@@ -23,10 +25,10 @@ const Nav = () => {
           </li>
         </ul>
         <div className="flex items-center">
-          <button className="py-2.5 px-5 rounded-full font-semibold text-sm leading-5 cursor-pointer">
+          <button className="py-1.5 px-3 md:py-2.5 md:px-5 rounded-full font-semibold text-[12px] md:text-sm leading-5 cursor-pointer">
             Sign In
           </button>
-          <button className="py-2.5 px-5 rounded-full bg-[#D91B7E] text-white font-semibold text-sm leading-5 cursor-pointer">
+          <button className="py-1.5 px-2 md:py-2.5 md:px-5 rounded-full bg-[#D91B7E] text-white font-semibold text-[12px] md:text-sm leading-5 cursor-pointer">
             Sign Up
           </button>
         </div>
